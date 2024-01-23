@@ -58,6 +58,10 @@ dependencies {
     implementation("com.google.dagger:hilt-android:2.50")
     kapt("com.google.dagger:hilt-android-compiler:2.50")
 
+    // Arrow.kt dependency
+    implementation("io.arrow-kt:arrow-core:1.2.1")
+    implementation("io.arrow-kt:arrow-fx-coroutines:1.2.1")
+
     // Retrofit dependency
     implementation("com.squareup.retrofit2:retrofit:2.9.0")
 
