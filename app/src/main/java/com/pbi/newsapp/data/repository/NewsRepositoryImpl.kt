@@ -12,9 +12,9 @@ class NewsRepositoryImpl @Inject constructor (
     private val newsApi: NewsApi
 ) : NewsRepository {
 
-    override suspend fun getNews(): Either<NetworkError, News> {
+    override suspend fun getNews(queryMap: Map<String, String>): Either<NetworkError, News> {
         return Either.catch {
-            newsApi.getNews()
+            newsApi.getNews(queryMap = queryMap)
         }.mapLeft { it.toNetworkError() }
     }
 
