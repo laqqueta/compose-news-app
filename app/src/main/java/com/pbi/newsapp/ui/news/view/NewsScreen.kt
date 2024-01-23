@@ -1,8 +1,12 @@
 package com.pbi.newsapp.ui.news.view
 
-import android.util.Log
+import androidx.compose.material3.Button
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableIntStateOf
+import androidx.compose.runtime.remember
+import androidx.compose.runtime.setValue
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import com.pbi.newsapp.ui.news.viewmodel.NewsViewModel
@@ -13,18 +17,22 @@ internal fun NewsScreen(
     viewModel: NewsViewModel = hiltViewModel()
 ) {
     val state by viewModel.state.collectAsStateWithLifecycle()
-    NewsContent(state = state)
+    var i by remember {
+        mutableIntStateOf(1)
+    }
+
+    NewsContent(state = state) { viewModel.getNews(++i) }
 }
 
 @Composable
 fun NewsContent(
-    state: NewsViewState
+    state: NewsViewState,
+    updateNews: () -> Unit
 ) {
     LoadingDialog(isLoading = state.isLoading)
 
-    // TODO: Log (news / articles) or iter articles
-    state.news?.articles?.forEach {
-        Log.i("api-success-articles-data", "NewsContent: ${it.title}")
+    Button(onClick = updateNews) {
+        Text(text = "Update News to Next Page")
     }
 
 }
