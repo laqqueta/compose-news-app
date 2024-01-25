@@ -6,6 +6,7 @@ import com.pbi.newsapp.domain.model.News
 
 interface NewsRepository {
 
-    suspend fun getNews(queryMap: Map<String, String>) : Either<NetworkError, News>
+    suspend fun getNews(query: HashMap<String, Any>) : Either<NetworkError, News>
 
+    suspend fun getHeadlines(query: HashMap<String, Any>) : Either<NetworkError, News>
 }

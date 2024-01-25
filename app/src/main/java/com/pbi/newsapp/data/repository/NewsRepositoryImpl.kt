@@ -12,10 +12,19 @@ class NewsRepositoryImpl @Inject constructor (
     private val newsApi: NewsApi
 ) : NewsRepository {
 
-    override suspend fun getNews(queryMap: Map<String, String>): Either<NetworkError, News> {
+    override suspend fun getNews(query: HashMap<String, Any>): Either<NetworkError, News> {
         return Either.catch {
-            newsApi.getNews(queryMap = queryMap)
+            newsApi.getNews(query = query)
         }.mapLeft { it.toNetworkError() }
     }
+
+    // TODO: implement getHeadlines for paging data
+    override suspend fun getHeadlines(query: HashMap<String, Any>): Either<NetworkError, News> {
+        return Either.catch {
+            newsApi.getHeadlines(query = query)
+        }.mapLeft { it.toNetworkError() }
+    }
+
+
 
 }
