@@ -15,8 +15,8 @@ import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
 
 @Composable
-fun LoadingDialog(isLoading: Boolean) {
-    if (isLoading) {
+fun LoadingDialog() {
+
         Dialog(
             onDismissRequest = { /*TODO*/ },
             properties = DialogProperties(dismissOnClickOutside = false)
@@ -33,5 +33,5 @@ fun LoadingDialog(isLoading: Boolean) {
                 )
             }
         }
-    }
+
 }
