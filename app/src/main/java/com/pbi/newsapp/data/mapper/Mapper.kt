@@ -1,5 +1,6 @@
 package com.pbi.newsapp.data.mapper
 
+import android.util.Log
 import com.pbi.newsapp.domain.model.ApiError
 import com.pbi.newsapp.domain.model.NetworkError
 import retrofit2.HttpException
@@ -9,7 +10,10 @@ fun Throwable.toNetworkError() : NetworkError {
     val error = when(this) {
         is IOException -> ApiError.NetworkError
         is HttpException -> ApiError.UnknownResponse
-        else -> ApiError.UnknownError
+        else -> {
+            Log.e("network-error", this.stackTraceToString() )
+            ApiError.UnknownError
+        }
     }
 
     return NetworkError(
