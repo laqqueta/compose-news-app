@@ -18,7 +18,6 @@ class NewsRepositoryImpl @Inject constructor (
         }.mapLeft { it.toNetworkError() }
     }
 
-    // TODO: implement getHeadlines for paging data
     override suspend fun getHeadlines(query: HashMap<String, Any>): Either<NetworkError, News> {
         return Either.catch {
             newsApi.getHeadlines(query = query)
