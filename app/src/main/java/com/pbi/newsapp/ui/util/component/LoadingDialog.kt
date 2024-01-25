@@ -13,25 +13,24 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.window.Dialog
 import androidx.compose.ui.window.DialogProperties
+import kotlinx.coroutines.delay
 
 @Composable
 fun LoadingDialog() {
-
-        Dialog(
-            onDismissRequest = { /*TODO*/ },
-            properties = DialogProperties(dismissOnClickOutside = false)
+    Dialog(
+        onDismissRequest = { /*TODO*/ },
+        properties = DialogProperties(dismissOnClickOutside = false)
+    ) {
+        Box(
+            modifier = Modifier
+                .width(200.dp)
+                .clip(RoundedCornerShape(15.dp))
+                .background(Color.White)
         ) {
-            Box(
+            CircularProgressIndicator(
                 modifier = Modifier
-                    .width(200.dp)
-                    .clip(RoundedCornerShape(15.dp))
-                    .background(Color.White)
-            ) {
-                CircularProgressIndicator(
-                    modifier = Modifier
-                        .padding(10.dp)
-                )
-            }
+                    .padding(10.dp)
+            )
         }
-
+    }
 }
