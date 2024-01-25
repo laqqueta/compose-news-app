@@ -1,14 +1,18 @@
 package com.pbi.newsapp.ui.news.view
 
+import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.material3.Button
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.getValue
-import androidx.compose.runtime.mutableIntStateOf
-import androidx.compose.runtime.remember
-import androidx.compose.runtime.setValue
+import androidx.compose.ui.Modifier
+import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
-import androidx.lifecycle.compose.collectAsStateWithLifecycle
+import androidx.paging.LoadState
+import androidx.paging.compose.LazyPagingItems
+import androidx.paging.compose.collectAsLazyPagingItems
+import com.pbi.newsapp.domain.model.Article
 import com.pbi.newsapp.ui.news.viewmodel.NewsViewModel
 import com.pbi.newsapp.ui.util.component.LoadingDialog
 
@@ -16,23 +20,34 @@ import com.pbi.newsapp.ui.util.component.LoadingDialog
 internal fun NewsScreen(
     viewModel: NewsViewModel = hiltViewModel()
 ) {
-    val state by viewModel.state.collectAsStateWithLifecycle()
-    var i by remember {
-        mutableIntStateOf(1)
-    }
+    val newsPaging = viewModel.articlePaging.collectAsLazyPagingItems()
 
-    NewsContent(state = state) { viewModel.getNews(++i) }
+    NewsContent(newsPaging)
 }
 
 @Composable
 fun NewsContent(
-    state: NewsViewState,
-    updateNews: () -> Unit
+    pager: LazyPagingItems<Article>
 ) {
-    LoadingDialog(isLoading = state.isLoading)
+    Column {
+        Button(onClick = {}) {
+            Text(text = "Update News to Next Page")
+        }
 
-    Button(onClick = updateNews) {
-        Text(text = "Update News to Next Page")
+        LazyColumn {
+            items(pager.itemCount) {
+                Text(text = pager[it]?.content ?: "empty", modifier = Modifier.padding(bottom = 20.dp))
+            }
+
+            pager.apply {
+                when {
+                    loadState.refresh is LoadState.Loading || loadState.append is LoadState.Loading ->  {
+                        item {
+                            LoadingDialog()
+                        }
+                    }
+                }
+            }
+        }
     }
-
 }
