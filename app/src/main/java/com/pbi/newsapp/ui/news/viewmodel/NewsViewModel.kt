@@ -6,7 +6,8 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
-import com.pbi.newsapp.data.paging.ArticlePagingSource
+import com.pbi.newsapp.data.paging.EverythingPagingSource
+import com.pbi.newsapp.data.paging.HeadlinesPagingSource
 import com.pbi.newsapp.domain.model.Article
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
@@ -16,27 +17,52 @@ import javax.inject.Inject
 
 @HiltViewModel
 class NewsViewModel @Inject constructor(
-    private val pagingSource: ArticlePagingSource,
+    private val everythingSource: EverythingPagingSource,
+    private val headlinesSource: HeadlinesPagingSource
 ) : ViewModel() {
-    private val _articlePaging: MutableStateFlow<PagingData<Article>> =
+
+    private val _everythingPaging: MutableStateFlow<PagingData<Article>> =
         MutableStateFlow(PagingData.empty())
-    var articlePaging = _articlePaging.asStateFlow()
+
+    private val _headlinesPaging: MutableStateFlow<PagingData<Article>> =
+        MutableStateFlow(PagingData.empty())
+
+    var everythingPaging = _everythingPaging.asStateFlow()
+        private set
+
+    var headlinesPaging = _headlinesPaging.asStateFlow()
         private set
 
     init {
-        pagingSource()
+        everythingPagingSource()
+        headlinesPagingSource()
     }
 
-    private fun pagingSource() {
+    private fun everythingPagingSource() {
         viewModelScope.launch {
             Pager(
                 config = PagingConfig(
                     10, enablePlaceholders = true
                 )
             ) {
-                pagingSource
+                everythingSource
             }.flow.cachedIn(viewModelScope).collect {
-                _articlePaging.value = it
+                _everythingPaging.value = it
+            }
+
+        }
+    }
+
+    private fun headlinesPagingSource() {
+        viewModelScope.launch {
+            Pager(
+                config = PagingConfig(
+                    10, enablePlaceholders = true
+                )
+            ) {
+                headlinesSource
+            }.flow.cachedIn(viewModelScope).collect {
+                _headlinesPaging.value = it
             }
         }
     }
