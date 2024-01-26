@@ -7,6 +7,7 @@
 /.idea/workspace.xml
 /.idea/navEditor.xml
 /.idea/assetWizardSettings.xml
+/app/src/main/java/com/pbi/newsapp/ui/ui_test.kt
 .DS_Store
 /build
 /captures
