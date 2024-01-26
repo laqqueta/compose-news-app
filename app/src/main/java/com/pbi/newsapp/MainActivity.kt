@@ -65,6 +65,7 @@ fun NewsApp() {
             color = MaterialTheme.colorScheme.background
         ) {
             // Content here
+            NewsScreen()
         }
     }
 }
