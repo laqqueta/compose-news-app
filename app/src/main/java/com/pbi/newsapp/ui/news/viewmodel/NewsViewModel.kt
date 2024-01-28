@@ -49,7 +49,7 @@ class NewsViewModel @Inject constructor(
         viewModelScope.launch {
             Pager(
                 config = PagingConfig(
-                    3, enablePlaceholders = true
+                    7, enablePlaceholders = true
                 )
             ) {
                 everythingSource
@@ -64,7 +64,7 @@ class NewsViewModel @Inject constructor(
         viewModelScope.launch {
             Pager(
                 config = PagingConfig(
-                    3, enablePlaceholders = true
+                    7, enablePlaceholders = true
                 )
             ) {
                 headlinesSource
