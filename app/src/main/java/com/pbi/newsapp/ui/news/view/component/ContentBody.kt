@@ -51,7 +51,7 @@ fun NewsImage(
 
         } else {
             Image(
-                painter = painterResource(id = R.drawable.image),
+                painter = painterResource(id = R.drawable.headlines),
                 contentDescription = null,
                 contentScale = ContentScale.Inside,
                 modifier = Modifier.size(
