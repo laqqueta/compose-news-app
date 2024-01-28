@@ -29,10 +29,6 @@ class EverythingPagingSource @Inject constructor(
 
         Log.i("api-paging-news-source-page", "page: $page")
 
-        // TODO: REMOVE THIS WHEN APP FINISHED
-        // emit loading
-        delay(5000)
-
         return when(val response = repository.getNews(param.toHashMap())) {
             is Either.Left -> {
                 response.onLeft {
