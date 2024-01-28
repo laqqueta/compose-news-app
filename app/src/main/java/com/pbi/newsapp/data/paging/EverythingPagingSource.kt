@@ -9,7 +9,6 @@ import com.pbi.newsapp.domain.model.request.EverythingEndpointParam
 import com.pbi.newsapp.domain.repository.NewsRepository
 import com.pbi.newsapp.utils.Event
 import com.pbi.newsapp.utils.sendEvent
-import kotlinx.coroutines.delay
 import javax.inject.Inject
 
 class EverythingPagingSource @Inject constructor(

@@ -16,7 +16,6 @@ import androidx.compose.ui.tooling.preview.Devices
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.Lifecycle
 import androidx.lifecycle.repeatOnLifecycle
-import com.pbi.newsapp.ui.BoxWithImageAndDetailArticle
 import com.pbi.newsapp.ui.news.view.NewsScreen
 import com.pbi.newsapp.ui.theme.NewsAppTheme
 import com.pbi.newsapp.utils.Event
