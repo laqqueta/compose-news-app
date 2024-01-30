@@ -8,8 +8,9 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.focus.FocusRequester
 import androidx.compose.ui.focus.focusRequester
 import androidx.compose.ui.focus.focusTarget
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.unit.dp
+import com.pbi.newsapp.R
 
 @Composable
 fun BottomBarButton(
@@ -28,7 +29,10 @@ fun BottomBarButton(
         Icon(
             painterResource(id = icon),
             contentDescription = null,
-            modifier = Modifier.size(25.dp)
+            modifier = Modifier
+                .size(
+                    dimensionResource(id = R.dimen.icon_button_size)
+                )
         )
     }
 }

@@ -7,8 +7,9 @@ import androidx.compose.material3.Scaffold
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.dp
+import androidx.compose.ui.res.dimensionResource
 import androidx.paging.compose.LazyPagingItems
+import com.pbi.newsapp.R
 import com.pbi.newsapp.domain.model.Article
 import com.pbi.newsapp.ui.news.view.component.ArticleLazyColumn
 import com.pbi.newsapp.ui.news.view.component.BottomBarButton
@@ -27,8 +28,12 @@ fun NewsContent(
         BottomAppBar(
             containerColor = Color(0xFF1b1b1c),
             modifier = Modifier
-                .height(50.dp)
-                .padding(0.dp),
+                .height(
+                    dimensionResource(id = R.dimen.bottom_app_bar_height)
+                )
+                .padding(
+                    dimensionResource(id = R.dimen.bottom_app_bar_padding)
+                ),
             actions = {
                 BottomBarButton(
                     focusRequester = state.newsFocus,

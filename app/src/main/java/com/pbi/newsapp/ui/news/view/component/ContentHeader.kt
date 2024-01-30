@@ -13,9 +13,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.pbi.newsapp.R
 import com.pbi.newsapp.ui.util.component.helveticaFamily
 
 
@@ -28,14 +29,21 @@ fun NewsHeader(
     Row(
         horizontalArrangement = Arrangement.Center,
         verticalAlignment = Alignment.CenterVertically,
-        modifier = modifier.padding(vertical = 5.dp),
+        modifier = modifier
+            .padding(
+                vertical = dimensionResource(id = R.dimen.vertical_padding)
+            ),
     ) {
         Icon(
             imageVector = Icons.Filled.AccountCircle,
             contentDescription = null,
             modifier = Modifier
-                .size(40.dp)
-                .padding(end = 3.dp)
+                .size(
+                    dimensionResource(id = R.dimen.header_icon_size)
+                )
+                .padding(
+                    end = dimensionResource(id = R.dimen.header_icon_padding)
+                )
         )
 
         Column(
@@ -48,7 +56,13 @@ fun NewsHeader(
                 fontWeight = FontWeight.Medium,
                 fontSize = 13.sp,
             )
-            Spacer(modifier = Modifier.padding(vertical = 2.dp))
+
+            Spacer(
+                modifier = Modifier
+                    .padding(
+                        vertical = dimensionResource(id = R.dimen.header_spacer_padding))
+            )
+
             Text(
                 text = publishedAt,
                 fontFamily = helveticaFamily,

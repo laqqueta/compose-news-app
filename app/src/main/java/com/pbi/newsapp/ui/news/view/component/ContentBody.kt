@@ -12,11 +12,11 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
-import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
 import coil.request.ImageRequest
 import com.pbi.newsapp.R
@@ -31,7 +31,9 @@ fun NewsImage(
     Box(
         modifier = modifier
             .fillMaxWidth()
-            .padding(vertical = 5.dp),
+            .padding(
+                vertical = dimensionResource(id = R.dimen.vertical_padding)
+            ),
         contentAlignment = Alignment.Center,
     ) {
         Log.i("image-url", imageUrl ?: "null")
@@ -44,8 +46,8 @@ fun NewsImage(
                 contentDescription = null,
                 contentScale = ContentScale.Inside,
                 modifier = imageModifier.size(
-                    width = 300.dp,
-                    height = 200.dp
+                    width = dimensionResource(id = R.dimen.content_image_width),
+                    height = dimensionResource(id = R.dimen.content_image_height)
                 )
             )
 
@@ -55,8 +57,8 @@ fun NewsImage(
                 contentDescription = null,
                 contentScale = ContentScale.Inside,
                 modifier = Modifier.size(
-                    width = 300.dp,
-                    height = 200.dp
+                    width = dimensionResource(id = R.dimen.content_image_width),
+                    height = dimensionResource(id = R.dimen.content_image_height)
                 )
             )
         }
@@ -72,7 +74,9 @@ fun NewsTitle(
         text = title,
         fontFamily = helveticaFamily,
         fontWeight = FontWeight.Bold,
-        modifier = modifier.padding(vertical = 5.dp)
+        modifier = modifier
+            .padding(
+                vertical = dimensionResource(id = R.dimen.vertical_padding))
     )
 }
 
@@ -90,6 +94,8 @@ fun NewsDescription(
             fontWeight = FontWeight.Normal,
             maxLines = maxLines,
             overflow = TextOverflow.Ellipsis,
-            modifier = modifier.padding(vertical = 5.dp)
+            modifier = modifier
+                .padding(
+                    vertical = dimensionResource(id = R.dimen.vertical_padding))
         )
 }

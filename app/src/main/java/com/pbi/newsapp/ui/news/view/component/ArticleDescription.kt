@@ -5,9 +5,10 @@ import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.padding
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.dp
+import androidx.compose.ui.res.dimensionResource
+import com.pbi.newsapp.R
 import com.pbi.newsapp.domain.model.Article
+import com.pbi.newsapp.ui.theme.articleBackground
 
 @Composable
 fun NewsDetails(
@@ -16,11 +17,14 @@ fun NewsDetails(
 ) {
     Column(
         modifier = modifier
-            .background(Color(0xFF202021))
+            .background(articleBackground)
     ) {
         Column(
             modifier = Modifier
-                .padding(vertical = 5.dp, horizontal = 10.dp)
+                .padding(
+                    vertical = dimensionResource(id = R.dimen.vertical_padding),
+                    horizontal = dimensionResource(id = R.dimen.horizontal_padding)
+                )
         ) {
             NewsHeader(
                 author = article.author,

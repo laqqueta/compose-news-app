@@ -7,10 +7,11 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.unit.dp
+import androidx.compose.ui.res.dimensionResource
 import androidx.paging.compose.LazyPagingItems
+import com.pbi.newsapp.R
 import com.pbi.newsapp.domain.model.Article
+import com.pbi.newsapp.ui.theme.lazyColumnBackground
 
 @Composable
 fun ArticleLazyColumn(
@@ -21,13 +22,15 @@ fun ArticleLazyColumn(
     LazyColumn(
         modifier = modifier
             .padding(paddingValues)
-            .background(Color.Black)
+            .background(lazyColumnBackground)
     ) {
         items(articles.itemCount) {
             NewsDetails(article = articles[it]!!)
 
             Spacer(
-                modifier = Modifier.padding(5.dp)
+                modifier = Modifier.padding(
+                    dimensionResource(id = R.dimen.all_padding)
+                )
             )
         }
     }

@@ -8,9 +8,10 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import com.pbi.newsapp.R
 import com.pbi.newsapp.ui.util.component.helveticaFamily
 
 @Composable
@@ -23,7 +24,9 @@ fun NewsFooter(
         verticalAlignment = Alignment.CenterVertically,
         modifier = modifier
             .fillMaxWidth()
-            .padding(vertical = 5.dp)
+            .padding(
+                vertical = dimensionResource(id = R.dimen.vertical_padding)
+            )
     ) {
         Text(
             text = "Source: $source",
