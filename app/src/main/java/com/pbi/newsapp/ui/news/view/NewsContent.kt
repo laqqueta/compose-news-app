@@ -1,4 +1,4 @@
-package com.pbi.newsapp.ui.news.view.component
+package com.pbi.newsapp.ui.news.view
 
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
@@ -23,7 +23,8 @@ import androidx.compose.ui.unit.dp
 import androidx.paging.compose.LazyPagingItems
 import com.pbi.newsapp.R
 import com.pbi.newsapp.domain.model.Article
-import com.pbi.newsapp.ui.news.view.NewsViewState
+import com.pbi.newsapp.ui.news.view.component.ArticleLazyColumn
+import com.pbi.newsapp.ui.news.view.component.LoadingAnimation
 import com.pbi.newsapp.utils.Endpoint
 
 @Composable
@@ -98,8 +99,14 @@ fun NewsContent(
         )
     }) {
         when(state.endpoint) {
-            Endpoint.EVERYTHING -> ArticleLazyColumn(paddingValues = it, articles = newsPagingData)
-            else -> ArticleLazyColumn(paddingValues = it, articles = headlinesPagingData)
+            Endpoint.EVERYTHING -> {
+                LoadingAnimation(pagingData = newsPagingData)
+                ArticleLazyColumn(paddingValues = it, articles = newsPagingData)
+            }
+            else -> {
+                LoadingAnimation(pagingData = headlinesPagingData)
+                ArticleLazyColumn(paddingValues = it, articles = headlinesPagingData)
+            }
         }
     }
 }
