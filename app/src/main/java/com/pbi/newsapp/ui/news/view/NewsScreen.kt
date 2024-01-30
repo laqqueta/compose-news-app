@@ -5,7 +5,6 @@ import androidx.compose.runtime.getValue
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.lifecycle.compose.collectAsStateWithLifecycle
 import androidx.paging.compose.collectAsLazyPagingItems
-import com.pbi.newsapp.ui.news.view.component.NewsContent
 import com.pbi.newsapp.ui.news.viewmodel.NewsViewModel
 
 @Composable
