@@ -9,6 +9,7 @@ import com.pbi.newsapp.domain.model.request.EverythingEndpointParam
 import com.pbi.newsapp.domain.repository.NewsRepository
 import com.pbi.newsapp.utils.Event
 import com.pbi.newsapp.utils.sendEvent
+import kotlinx.coroutines.delay
 import javax.inject.Inject
 
 class EverythingPagingSource @Inject constructor(
@@ -18,6 +19,7 @@ class EverythingPagingSource @Inject constructor(
     override fun getRefreshKey(state: PagingState<Int, Article>): Int? = state.anchorPosition
 
     override suspend fun load(params: LoadParams<Int>): LoadResult<Int, Article> {
+        delay(3000) // emit load state
         val page = params.key ?: 1
         val param = EverythingEndpointParam(
             q = "pemilu",
