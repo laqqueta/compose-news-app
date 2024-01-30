@@ -7,6 +7,7 @@ import androidx.paging.Pager
 import androidx.paging.PagingConfig
 import androidx.paging.PagingData
 import androidx.paging.cachedIn
+import com.pbi.newsapp.R
 import com.pbi.newsapp.data.paging.EverythingPagingSource
 import com.pbi.newsapp.data.paging.HeadlinesPagingSource
 import com.pbi.newsapp.domain.model.Article
@@ -77,7 +78,11 @@ class NewsViewModel @Inject constructor(
     fun toNews() {
         viewModelScope.launch {
             _state.update {
-                it.copy(endpoint = Endpoint.EVERYTHING)
+                it.copy(
+                    endpoint = Endpoint.EVERYTHING,
+                    newsIcon = R.drawable.solid_newspaper,
+                    headlinesIcon = R.drawable.fire_regular
+                )
             }
             Log.i("viewmodel-update-news", "state: ${_state.value.endpoint}")
         }
@@ -87,7 +92,11 @@ class NewsViewModel @Inject constructor(
     fun toHeadlines() {
         viewModelScope.launch {
             _state.update {
-                it.copy(endpoint = Endpoint.HEADLINES)
+                it.copy(
+                    endpoint = Endpoint.HEADLINES,
+                    newsIcon = R.drawable.regular_newspaper,
+                    headlinesIcon = R.drawable.fire_solid
+                )
             }
             Log.i("viewmodel-update-article", "state: ${_state.value.endpoint}")
         }
