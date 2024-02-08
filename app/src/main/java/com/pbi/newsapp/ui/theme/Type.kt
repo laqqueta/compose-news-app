@@ -20,12 +20,12 @@ val Typography = Typography(
     titleMedium = TextStyle( // title
         fontFamily = Quicksand,
         fontWeight = FontWeight.SemiBold,
-        fontSize = 17.sp
+        fontSize = 16.sp
     ),
     bodyMedium = TextStyle( // description
         fontFamily = Quicksand,
         fontWeight = FontWeight.Medium,
-        fontSize = 15.sp
+        fontSize = 14.sp
     ),
     displayMedium = TextStyle( // author
         fontFamily = Quicksand,
