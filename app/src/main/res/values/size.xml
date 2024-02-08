@@ -15,4 +15,6 @@
     <dimen name="content_image_height">200dp</dimen>
 
     <dimen name="icon_button_size">25dp</dimen>
+
+    <dimen name="medium_padding">8dp</dimen>
 </resources>
