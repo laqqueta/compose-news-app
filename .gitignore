@@ -13,3 +13,7 @@
 .externalNativeBuild
 .cxx
 local.properties
+
+/app/src/main/java/com/pbi/newsapp/ui/ui_test.kt
+/app/src/main/res/drawable-nodpi/image.webp
+/app/src/main/java/com/pbi/newsapp/utils/DataTest.kt
