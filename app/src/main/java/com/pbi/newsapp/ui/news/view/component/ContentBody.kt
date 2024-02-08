@@ -17,7 +17,6 @@ import androidx.compose.ui.layout.ContentScale
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.dimensionResource
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.text.style.TextOverflow
 import androidx.compose.ui.unit.dp
 import coil.compose.AsyncImage
@@ -31,7 +30,7 @@ fun NewsImage(
 ) {
     Box(
         modifier = modifier
-            .height(250.dp)
+            .height(200.dp)
             .fillMaxWidth()
             .padding(
                 vertical = dimensionResource(id = R.dimen.vertical_padding)
@@ -89,7 +88,6 @@ fun NewsDescription(
         Text(
             text = newsDesc,
             style = MaterialTheme.typography.bodyMedium,
-            textAlign = TextAlign.Justify,
             maxLines = maxLines,
             overflow = TextOverflow.Ellipsis,
             modifier = modifier
