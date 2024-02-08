@@ -60,12 +60,9 @@ class MainActivity : ComponentActivity() {
 @Composable
 fun NewsApp() {
     NewsAppTheme {
-        Surface(
-            modifier = Modifier.fillMaxSize(),
-            color = MaterialTheme.colorScheme.background
-        ) {
+
             // Content here
             NewsScreen()
-        }
+
     }
 }
