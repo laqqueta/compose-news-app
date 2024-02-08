@@ -2,17 +2,6 @@ package com.pbi.newsapp.ui.theme
 
 import androidx.compose.ui.graphics.Color
 
-val Purple80 = Color(0xFFD0BCFF)
-val PurpleGrey80 = Color(0xFFCCC2DC)
-val Pink80 = Color(0xFFEFB8C8)
-
-val Purple40 = Color(0xFF6650a4)
-val PurpleGrey40 = Color(0xFF625b71)
-val Pink40 = Color(0xFF7D5260)
-
-val lazyColumnBackground = Color(0xFF0d0d0d)
-val articleBackground = Color(0xFF202021)
-
 val md_theme_light_primary = Color(0xFF006D44)
 val md_theme_light_onPrimary = Color(0xFFFFFFFF)
 val md_theme_light_primaryContainer = Color(0xFF91F7BD)
@@ -39,7 +28,6 @@ val md_theme_light_outline = Color(0xFF717972)
 val md_theme_light_inverseOnSurface = Color(0xFFF0F1ED)
 val md_theme_light_inverseSurface = Color(0xFF2E312E)
 val md_theme_light_inversePrimary = Color(0xFF75DAA3)
-val md_theme_light_shadow = Color(0xFF000000)
 val md_theme_light_surfaceTint = Color(0xFF006D44)
 val md_theme_light_outlineVariant = Color(0xFFC0C9C0)
 val md_theme_light_scrim = Color(0xFF000000)
@@ -70,7 +58,6 @@ val md_theme_dark_outline = Color(0xFF8A938B)
 val md_theme_dark_inverseOnSurface = Color(0xFF191C1A)
 val md_theme_dark_inverseSurface = Color(0xFFE1E3DF)
 val md_theme_dark_inversePrimary = Color(0xFF006D44)
-val md_theme_dark_shadow = Color(0xFF000000)
 val md_theme_dark_surfaceTint = Color(0xFF75DAA3)
 val md_theme_dark_outlineVariant = Color(0xFF404942)
 val md_theme_dark_scrim = Color(0xFF000000)
