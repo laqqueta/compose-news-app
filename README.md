@@ -26,7 +26,7 @@ targetSdk = 34
 
 ## Preview
 
-| Darkmode                       |            Lightmode             |
+| Dark-mode                      |            Light mode            |
 |--------------------------------|:--------------------------------:|
 | ![dark mode preview][darkmode] | ![light mode preview][lightmode] |
 
