@@ -9,7 +9,6 @@ import androidx.compose.ui.unit.sp
 import com.pbi.newsapp.R
 
 val Quicksand = FontFamily(
-    Font(R.font.quicksand_light, FontWeight.Light),
     Font(R.font.quicksand_regular, FontWeight.Normal),
     Font(R.font.quicksand_medium, FontWeight.Medium),
     Font(R.font.quicksand_semi_bold, FontWeight.SemiBold),
@@ -18,30 +17,30 @@ val Quicksand = FontFamily(
 
 // Set of Material typography styles to start with
 val Typography = Typography(
-    titleMedium = TextStyle(
+    titleMedium = TextStyle( // title
         fontFamily = Quicksand,
         fontWeight = FontWeight.SemiBold,
-        fontSize = 15.sp
+        fontSize = 17.sp
     ),
-    bodyMedium = TextStyle(
+    bodyMedium = TextStyle( // description
         fontFamily = Quicksand,
         fontWeight = FontWeight.Medium,
+        fontSize = 15.sp
+    ),
+    displayMedium = TextStyle( // author
+        fontFamily = Quicksand,
+        fontWeight = FontWeight.Normal,
+        fontSize = 13.sp
+    ),
+    displaySmall = TextStyle( // source
+        fontFamily = Quicksand,
+        fontWeight = FontWeight.Normal,
         fontSize = 12.sp
     ),
-    displayMedium = TextStyle(
-        fontFamily = Quicksand,
-        fontWeight = FontWeight.Normal,
-        fontSize = 10.sp
-    ),
-    displaySmall = TextStyle(
-        fontFamily = Quicksand,
-        fontWeight = FontWeight.Normal,
-        fontSize = 9.sp
-    ),
-    labelLarge = TextStyle(
+    labelLarge = TextStyle( // published at
         fontFamily = Quicksand,
         fontWeight = FontWeight.Bold,
-        fontSize = 8.sp
+        fontSize = 12.sp
     )
 
 )
